@@ -14,7 +14,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path
     else
-      render :index, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -49,7 +49,6 @@ class PrototypesController < ApplicationController
 
   def move_to_index
     @prototype = Prototype.find(params[:id])
-    # 投稿者でなければトップページにリダイレクト
     unless current_user.id == @prototype.user_id
       redirect_to root_path
     end
