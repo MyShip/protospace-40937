@@ -3,7 +3,7 @@ class Prototype < ApplicationRecord
   validates :catch_copy,          presence: true
   validates :concept,             presence: true
 
-  has_many :user
+  belongs_to :user
   has_many :comments,             dependent: :destroy
 
   validates :image, presence: true, unless: :was_attached?

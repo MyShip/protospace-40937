@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    User.create(user_params)
+    @user = User.create(user_params)
     redirect_to action: :index
   end
   
